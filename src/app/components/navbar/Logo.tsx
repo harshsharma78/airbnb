@@ -1,9 +1,20 @@
-import React from 'react'
+'use client';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const Logo = () => {
-  return (
-    <div>Logo</div>
-  )
-}
+	const router = useRouter();
 
-export default Logo
+	return (
+		<Image
+			alt='Logo'
+			className='hidden md:block cursor-pointer'
+			height='100'
+			width='100'
+			src='/images/logo.jpeg'
+		/>
+	);
+};
+
+export default Logo;
