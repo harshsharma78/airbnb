@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
@@ -49,6 +49,11 @@ const LoginModal = () => {
 		});
 	};
 
+	const toggle = useCallback(() => {
+		loginModal.onClose();
+		registerModal.onOpen();
+	}, [loginModal, registerModal]);
+
 	const bodyContent = (
 		<div className='flex flex-col gap-4'>
 			<Heading
@@ -93,9 +98,9 @@ const LoginModal = () => {
 			/>
 			<div className='text-neutral-500 text-center mt-4 font-light'>
 				<div className='justify-center flex flex-row items-center gap-2'>
-					<div>Do not have an account yet?</div>
+					<div>First time using Airbnb?</div>
 					<div
-						onClick={registerModal.onOpen}
+						onClick={toggle}
 						className='text-neutral-800 cursor-pointer hover:underline'>
 						Sign up
 					</div>
