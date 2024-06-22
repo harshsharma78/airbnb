@@ -8,12 +8,12 @@ import { useRouter } from 'next/navigation';
 import React, { useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 
-interface TripsClientProps {
+interface PropertiesClientProps {
   listings?: SafeListing[];
   currentUser?: SafeUser | null;
 }
 
-const PropertiesClient: React.FC<TripsClientProps> = ({
+const PropertiesClient: React.FC<PropertiesClientProps> = ({
   listings,
   currentUser,
 }) => {
